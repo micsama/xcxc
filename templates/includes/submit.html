@@ -1,0 +1,95 @@
+{{template "base.html" . }} {{define "title"}} {{.title}} {{end}} {{define
+"content"}}
+<div class="layui-row">
+	<div class="layui-col-xs8 layui-col-xs-offset2" style="text-align:center;background-color:white;font-size: 1.2rem;">
+	<pre>
+	<div class="" style="font-size: 1.5rem;font-weight:bold ;"  id="text">
+	</div>
+{{.check}}
+	</pre>
+	<div class="" style="color: blue;">
+		提示：微信浏览器只能呼出微信支付，其他手机浏览器只能呼出支付宝支付
+	</div>
+	<button  class="layui-btn layui-btn-normal" type="" onclick="getali()" value="" name="" id="">支付宝支付</button>
+	<button  class="layui-btn " type="" onclick="getwechat()" value="" name="" id="">微信支付</button>
+	<br></br>
+	<div class="" style="text-align:center;font-weight:bold;font-size:1.2rem">
+发车前三天不可退票，退票添加微信：15530856229
+	</div>
+	</div>
+</div>
+
+<script  charset="utf-8">
+
+
+
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+  console.log("sj")
+  } else {
+  console.log("pc")
+  makeCode()
+  }
+	var myloading;
+	var id={{.id}};
+	var i=0;
+	var url="http://www.baidu.com"
+	var winRef
+
+function makeCode () {      
+var qrcode = new QRCode("qrcode");
+    qrcode.makeCode(url);
+}
+
+	function getwechat(){
+	$("#text").text('获取微信付款信息中~');
+  $.ajax({
+    url:"/geturl/"+id+"?t=wechat",
+    type:"GET",
+    success:function(result){
+    url=result.url
+	console.log(url)
+	self.location.href=url
+	}
+	})}
+
+	function getali(){
+	$("#text").text('获取支付宝付款信息中~');
+  $.ajax({
+    url:"/geturl/"+id+"?t=alipay",
+    type:"GET",
+    success:function(result){
+    var url=result.url
+	console.log(url)
+    function browserRedirect() {
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+	self.location.href=url
+  } else {
+  makecode()
+  }
+ }
+	
+setInterval("checkalipay()","3000");
+	}
+	})}
+function checkalipay(){
+if(i<200){
+$.ajax({
+	url:"/checkpay/"+id,
+	type:"GET",
+	success:function(result){
+	i = i + 1;
+	if(result.status=="success"){
+	$("#text").text('付款成功！可以关闭本页面');
+	i=1000
+	}else{
+	$("#text").text('等待付款中');
+	console.log("wait for pay");
+	}
+	}
+})
+}}
+
+</script>
+{{end}}

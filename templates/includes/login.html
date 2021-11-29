@@ -1,0 +1,58 @@
+te "base.html" .}} {{define "title"}} --登录-- {{ end }} {{define "header"}}
+<h1>请登录：</h1>
+{{ end }} {{define "content"}}
+<div class=" " style="height:10rem">
+	
+</div>
+<div class="layui-row">
+  <div class="layui-col-md6 layui-col-xs10 layui-col-xs-offset1 layui-col-md-offset3 center">
+    <div style="width: 20%; background-color: red; display: inline-block"></div>
+      <form
+        class="layui-form layui-form-pane center"
+        action="/admin"
+        method="POST"
+      >
+        <div class="layui-form-item center">
+          <label class="layui-form-label" for="username">用户名：</label>
+          <div class="layui-input-inline">
+            <input
+              class="layui-input"
+              type="text"
+              lay-verify="required"
+              placeholder="请输入用户名"
+              name="username"
+              id="username"
+              required
+            />
+          </div>
+        </div>
+        <br />
+        <div class="layui-form-item">
+          <label class="layui-form-label" for="password">密码：</label>
+          <div class="layui-input-inline">
+            <input
+              class="layui-input"
+              type="password"
+              name="password"
+              id="password"
+              lay-verify="required"
+              placeholder="请输入密码"
+              required
+            />
+          </div>
+        </div>
+        <br />
+        <button
+          class="layui-btn layui-btn-radius"
+          lay-submit
+          lay-filter="formDemo"
+          type="submit"
+		  style="margin-right:50rem"
+        >
+          <i class="layui-icon">&#xe609;</i> 立即登录！！
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{{ end }}

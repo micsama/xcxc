@@ -1,0 +1,18 @@
+{{template "base.html" . }} {{define "title"}} {{.title}} {{end}} {{define
+"content"}}
+
+<div class="layui-row">
+	<div class="layui-col-xs8 layui-col-xs-offset2" style="text-align:center;background-color:white;margin-top:10rem;font-size: 1.4rem;">
+		<br></br>
+		<div class="name" style="font-size: 1.2rem;">
+			成功！
+		</div>
+	<pre>
+{{.check}}
+	</pre>
+	<br></br>
+	</div>
+</div>
+<script charset="utf-8">
+</script>
+{{end}}

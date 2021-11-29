@@ -1,0 +1,154 @@
+{{template "base.html" . }} {{define "title"}} {{.title}} {{end}} {{define
+"content"}}
+
+<div style="height: 4rem"></div>
+<div class="layui-row" style="font-size: 1rem">
+  <!-- <div class="layui-col-xs10 layui-col-xs-offset1"> -->
+  <form
+    class="center layui-form layui-col-md6 layui-col-md-offset3"
+    action="/submit"
+	method="post"
+    style="background-color: whitesmoke"
+lay-filter="myform"
+  >
+    <br />
+    <div class="layui-form-item">
+      <label class="layui-form-label">学校: </label>
+      <div class="layui-input-block">
+        <select name="school" lay-verify="required">
+          <option value=""></option>
+          <option value="华北理工大学曹妃甸校区">华北理工大学曹妃甸校区</option>
+          <option value="唐山工业职业技术学院">唐山工业职业技术学院</option>
+          <option value="唐山海运职业学院">唐山海运职业学院</option>
+          <option value="曹妃甸职业技术学院">曹妃甸职业技术学院</option>
+          <option value="河北科技学院">河北科技学院</option>
+          <option value="唐山师范学院">唐山师范学院</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">行程: </label>
+      <div class="layui-input-block">
+        <input type="radio" name="isback" value="返校" title="返校" lay-filter="together_send" />
+        <input type="radio" name="isback" value="回家" title="回家" lay-filter="together_send" checked />
+      </div>
+    </div>
+    <label class="layui-form-label">返校起点/回家终点: </label>
+    <div class="layui-input-block">
+      <select name="city" id="city" lay-verify="required">
+        <option value=""></option>
+        <option value="定州高速口">定州高速口  120元</option>
+        <option value="望都服务区">望都服务区  120元</option>
+        <option value="保定学院" disabled id="baodingxy">保定学院    100元</option>
+        <option value="保定学院" id="baodingky">保定客运站    100元</option>
+        <option value="徐水服务区">徐水服务区  100元</option>
+        <option value="崔庄服务区">崔庄服务区  100元</option>
+        <option value="雄县服务区">雄县服务区  100元</option>
+      </select>
+    </div>
+
+    <!-- <div class="layui-form-item"> -->
+    <!--   <label class="layui-form-label">预计价格: </label> -->
+    <!--   <label class="layui-form-label" id="price">0 元</label> -->
+    <!-- </div> -->
+    <div class="layui-form-item">
+      <label class="layui-form-label">姓名: </label>
+      <div class="layui-input-block">
+        <input
+          type="text"
+          name="name"
+          required
+          lay-verify="required"
+          placeholder="请输入姓名"
+          autocomplete="off"
+          class="layui-input"
+        />
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">手机号: </label>
+      <div class="layui-input-block">
+        <input
+          type="text"
+          name="phone"
+          required
+          lay-verify="phone|required"
+          placeholder="请输入联系方式"
+          autocomplete="off"
+          class="layui-input"
+        />
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">邮箱: </label>
+      <div class="layui-input-block">
+        <input
+          type="text"
+          name="email"
+          required
+          lay-verify="email|required"
+          placeholder="请输入邮箱"
+          autocomplete="off"
+          class="layui-input"
+        />
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label" for="date">日期: </label>
+      <input type="date" name="date" lay-verify="required"id="date" value="" />
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="formDemo">
+          立即提交
+        </button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		<a href="/" target="_self" class="layui-btn layui-btn-primary">返回主页 </a>
+      </div>
+    </div>
+    <br />
+  </form>
+</div>
+
+<script charset="utf-8">
+	// radio监听事件
+	layui.use('form', function(){
+	var form = layui.form;
+    form.on("radio(together_send)", function (data) {
+    var val = data.value;
+	if (val == "返校"){
+		    $('#baodingky').attr("disabled", true);
+            $('#baodingxy').removeAttr("disabled");
+			form.val("myform",{
+			"city":""
+			})
+            form.render('select');
+	}else{
+		    $('#baodingxy').attr("disabled", true);
+            $('#baodingky').removeAttr("disabled");
+			form.val("myform",{
+			"city":""
+			})
+            form.render('select');
+	}
+});
+  //各种基于事件的操作，下面会有进一步介绍
+});
+
+
+
+  // function validate() {
+  //   var pw1 = document.getElementById("city").value;
+  //   if (pw1 == "") {
+  //     document.getElementById("price").innerHTML = "请选择地区";
+  //   } else if (pw1 ==  "定州高速口"|| pw1 == "望都服务区") {
+  //     document.getElementById("price").innerHTML = "120元";
+  //   } else if (pw1 == "保定学院" || pw1 ==  "徐水服务区"|| pw1 == "崔庄服务区" || pw1 == "雄县服务区") {
+  //     document.getElementById("price").innerHTML = "100元";
+  //   } else if (pw1 == "测试用") {
+  //     document.getElementById("price").innerHTML = "0.1元";
+  //   }
+  // }
+  // setInterval("validate()", "500");
+</script>
+{{end}}

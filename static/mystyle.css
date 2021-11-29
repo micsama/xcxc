@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+body {
+    background-image: url("https://s3.bmp.ovh/imgs/2021/08/eb9cc6de4ddbfbc9.jpg");
+    background-attachment: fixed;
+    background-position: 100%, 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+ul {
+    right: 0px;
+    padding: 10px;
+    position: absolute;
+}
+
+hr {
+    margin: auto;
+}
+
+
+.ptext {
+    line-height: 30px;
+    text-indent: 2rem;
+    font-size: 1.2rem;
+}
+
+.minititle {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-align: center;
+    text-indent: 3rem;
+}
+
+.myb {
+    text-align: center;
+    height: 4rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.test {
+    height: 2rem;
+    background-color: gold;
+}
+
+.xiaobiaoti {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+
+}
+
+.divdata {
+
+
+    background-color: azure;
+
+    height: 7rem;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    line-height: 2.5rem;
+
+}
+
+h1 {
+    padding: 0;
+    line-height: 3.5rem;
+    font-size: 2rem;
+}
+
+h2 {
+    padding: 0, 2rem, 0, 2rem;
+
+    font-size: 1.7rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1.5rem;
+    padding: 0 2em 0 1em;
+}
+
+p {
+    padding: 0 2rem 0 2rem;
+    line-height: 2rem;
+    font-size: 1.2rem;
+}

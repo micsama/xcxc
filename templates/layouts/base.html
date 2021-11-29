@@ -1,0 +1,52 @@
+<!DOCTYPE html style="height: 100%">
+
+<html lang="zh-CN">
+
+<head>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+    <link rel="stylesheet" href="/static/public.css" media="all">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" type="text/css" media="all" charset="utf-8" />
+    <link rel="stylesheet" href="/static/mystyle.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="/static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="shortcut icon" href="/static/pic/icon.ico" type="image/x-icon" />
+    <!-- <link rel="icon" href="/static/pic/icon.ico" type="image/gif" /> -->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>{{block "title" .}}{{ end }}</title>
+    <script charset="utf-8">
+        layui.use("element", function() {
+            var element = layui.element;
+        });
+        layui.use(["layer", "form"], function() {
+            var layer = layui.layer,
+                form = layui.form; 
+            });
+			{{if.messagetype}}
+            layer.msg("{{.message}} ", {
+                time: 2000,
+                icon: {{.messagetype}},
+            }); {{end}}
+    </script>
+</head>
+<body style="height:100%">
+    <script charset="utf-8">
+        layui.use("element", function() {
+            var element = layui.element;
+        });
+        layui.use(["layer", "form"], function() {
+            var layer = layui.layer,
+                form = layui.form; 
+            });
+			{{if.messagetype}}
+            layer.msg("{{.message}} ", {
+                time: 2000,
+                icon: {{.messagetype}},
+            }); {{end}}
+    </script>
+    <!-- <div class="layui&#45;row" style="height: auto"> -->
+{{block "content" .}}{{ end }}
+
+  
+</body>
+
+</html>
