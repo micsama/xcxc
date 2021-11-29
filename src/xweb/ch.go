@@ -13,6 +13,7 @@ import (
 func GetChargeUrl(c *gin.Context) {
 	id := c.Param("id")
 	t := c.Query("t")
+	print(id, t)
 	if t == "alipay" {
 		url, sign := xsql.UserUrl(id, t)
 		fmt.Println("\n-----------------\nurl:", url)
