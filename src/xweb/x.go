@@ -23,11 +23,11 @@ func submit(c *gin.Context) {
 	st.Phone = c.PostForm("phone")
 	st.Applydate = time.Now().Local().Format("2006-01-02-15:04:05")
 	st.Id = st.Phone + strconv.Itoa(st.Month*100+st.Day) + st.Applydate
-	fmt.Println(st.Id)
 	st.School = c.PostForm("school")
 	st.Isback = c.PostForm("isback")
 	st.City = c.PostForm("city")
 	st.Ispayed = "未付"
+	fmt.Println("11----" + st.Name + st.City + st.Id)
 
 	xsql.Userdb = xsql.Userdb.Table("students")
 	xsql.Userdb.Table("student")
