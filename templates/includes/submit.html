@@ -61,10 +61,7 @@
     success:function(result){
     var url=result.url
 	console.log(url)
-    function browserRedirect() {
-	var sUserAgent = navigator.userAgent.toLowerCase();
 	self.location.href=url
-    }
 	
 setInterval("checkalipay()","3000");
 	}
