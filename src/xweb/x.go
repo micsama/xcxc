@@ -27,7 +27,6 @@ func submit(c *gin.Context) {
 	st.Isback = c.PostForm("isback")
 	st.City = c.PostForm("city")
 	st.Ispayed = "未付"
-	fmt.Println("11----" + st.Name + st.City + st.Id)
 
 	xsql.Userdb = xsql.Userdb.Table("students")
 	xsql.Userdb.Table("student")
@@ -39,8 +38,8 @@ func submit(c *gin.Context) {
 			fmt.Println("失败", err)
 		}
 		fmt.Println(st)
-		s := fmt.Sprintf("请仔细核对自己的信息:\n姓名:%s\n手机号:%s\n行程:%s\n日期:%s\n学校:%s\n家:%s\n\n同时，我们会发送一封包含你录入信息内容的邮件到你的邮箱内，请注意查收。",
-			st.Name, st.Phone, st.Isback, myDate, st.School, st.City)
+		s := fmt.Sprintf("请仔细核对自己的信息:\n姓名:%s\n手机号:%s\n行程:%s\n日期:%s\n学校:%s\n家:%s\n\n同时，我们会发送一封包含你录入信息内容的邮件到你的邮箱内，请注意查收。%s",
+			st.Name, st.Phone, st.Isback, myDate, st.School, st.City, st.Id)
 		c.HTML(http.StatusOK, "submit.html", gin.H{
 			"title":       "请付款",
 			"message":     message,
