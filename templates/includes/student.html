@@ -112,22 +112,22 @@ lay-filter="myform"
 
 <script charset="utf-8">
 	// radio监听事件
-	layui.use('form', function(){
-	var form = layui.form;
-    form.on("radio(together_send)", function (data) {
-    var val = data.value;
-	if (val == "返校"){
-		    $('#baodingky').attr("disabled", true);
-            $('#baodingxy').removeAttr("disabled");
-            form.render('select');
-	}else{
-		    $('#baodingxy').attr("disabled", true);
-            $('#baodingky').removeAttr("disabled");
-            form.render('select');
-	}
-});
-  //各种基于事件的操作，下面会有进一步介绍
-});
+// 	layui.use('form', function(){
+// 	var form = layui.form;
+//     form.on("radio(together_send)", function (data) {
+//     var val = data.value;
+// 	if (val == "返校"){
+// 		    $('#baodingky').attr("disabled", true);
+//             $('#baodingxy').removeAttr("disabled");
+//             form.render('select');
+// 	}else{
+// 		    $('#baodingxy').attr("disabled", true);
+//             $('#baodingky').removeAttr("disabled");
+//             form.render('select');
+// 	}
+// });
+//   //各种基于事件的操作，下面会有进一步介绍
+// });
 
 
 
