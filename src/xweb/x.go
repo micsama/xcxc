@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"strconv"
 	"time"
-	"xcxc/email"
 	"xcxc/xsql"
 
 	"github.com/gin-gonic/gin"
@@ -49,7 +48,7 @@ func submit(c *gin.Context) {
 			"check":       s,
 			"id":          st.Id,
 		})
-		go email.CheckStudentInfo(st)
+		// go email.CheckStudentInfo(st)
 
 	} else {
 		message = "不要刷新或者重复提交！请尝试重新登记后等待"
