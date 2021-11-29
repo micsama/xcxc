@@ -62,13 +62,9 @@
     var url=result.url
 	console.log(url)
     function browserRedirect() {
-  var sUserAgent = navigator.userAgent.toLowerCase();
-  if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+	var sUserAgent = navigator.userAgent.toLowerCase();
 	self.location.href=url
-  } else {
-  makecode()
-  }
- }
+    }
 	
 setInterval("checkalipay()","3000");
 	}
