@@ -40,7 +40,7 @@ lay-filter="myform"
         <option value="定州高速口">定州高速口  120元</option>
         <option value="望都服务区">望都服务区  120元</option>
         <option value="保定学院" disabled id="baodingxy">保定学院    100元</option>
-        <option value="保定学院" id="baodingky">保定客运站    100元</option>
+        <option value="保定客运站" id="baodingky">保定客运站    100元</option>
         <option value="徐水服务区">徐水服务区  100元</option>
         <option value="崔庄服务区">崔庄服务区  100元</option>
         <option value="雄县服务区">雄县服务区  100元</option>
@@ -111,7 +111,6 @@ lay-filter="myform"
 </div>
 
 <script charset="utf-8">
-	radio监听事件
 	layui.use('form', function(){
 	var form = layui.form;
     form.on("radio(together_send)", function (data) {
